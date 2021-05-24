@@ -36,7 +36,7 @@ You'll now need to clone the repo onto your local machine. On the page for the r
 
 The repo is now on your local machine!
 
-Because multiple people are going to be committing to this repository, we need to use branches in order to avoid overwriting each others' work. There should already be a "Momo" and a "Naren" branch made, so after you've cloned the repo, you'll need to
+Because multiple people are going to be committing to this repository, we need to use branches in order to avoid overwriting each others' work. There should already be a "momo" and a "naren" branch made, so after you've cloned the repo, you'll need to
 
 ```git checkout <branch name> ```
 
