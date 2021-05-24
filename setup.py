@@ -1,14 +1,16 @@
 import setuptools
 
 REQUIRED = [
-    'numpy'
+    'numpy',
+    'nibabel',
+    'scipy'
 ]
 
 with open('README.md', 'r') as fh:
     LONG_DESCRIPTION = fh.read()
     setuptools.setup(
         name = 'morphontogeny',
-        version = '0.0.1',
+        version = '0.0.2',
         author = 'BioProtean Labs',
         description = 'Analysis scripts for morphometry and spacial transcriptomic data.',
         long_description = LONG_DESCRIPTION,
