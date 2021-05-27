@@ -3,10 +3,10 @@
 #SBATCH -n 25 							# number of cores
 #SBATCH -p publicgpu					# partition name
 #SBATCH -q wildfire						# QOS
-#SBATCH -t 3-00:00						# wall time (D-HH:MM)
+#SBATCH -t 0-01:00						# wall time (D-HH:MM)
 #SBATCH -o slurm.%j.out					# STDOUT (%j = JobId)
 #SBATCH -e slurm.%j.err					# STDERR (%j = JobId)
 #SBATCH --mail-type=ALL					# Send a notification when the job starts, stops, or fails
 #SBATCH --mail-user=mabbasi6@asu.edu	# send-to address
 
-python /home/mabbasi6/Jupyter/Jobs/KPCA_poly.py
+python ~/git/Morphontogeny/morphontogeny/Jupyter/Jobs/KPCA_sigmoid.py

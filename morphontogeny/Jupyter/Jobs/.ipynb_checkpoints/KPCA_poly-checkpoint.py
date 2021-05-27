@@ -13,7 +13,7 @@ numbers_list = [31512]
 
 for n in numbers_list:
     # Running K-means clustering
-    kpca = KernelPCA(n_components=n, kernel='poly', degree=2, fit_inverse_transform=True, random_state=0, n_jobs=-1)
+    kpca = KernelPCA(n_components=n, kernel='poly', degree=3, fit_inverse_transform=True, random_state=0, n_jobs=-1)
     components = kpca.fit_transform(X)
     lambdas = kpca.lambdas_
     alphas = kpca.alphas_
@@ -21,8 +21,8 @@ for n in numbers_list:
     transformed_fit = kpca.X_transformed_fit_
 
     # Reshaping and saving the array
-    np.save('/data/bioprotean/ABA/KernelPCA/poly2/'+str(n)+'_components.npy', components)
-    np.save('/data/bioprotean/ABA/KernelPCA/poly2/'+str(n)+'_lambdas.npy', lambdas)
-    np.save('/data/bioprotean/ABA/KernelPCA/poly2/'+str(n)+'_alphas.npy', alphas)
-    np.save('/data/bioprotean/ABA/KernelPCA/poly2/'+str(n)+'_dual_coef.npy', dual_coef)
-    np.save('/data/bioprotean/ABA/KernelPCA/poly2/'+str(n)+'_transformed_fit.npy', transformed_fit)
+    np.save('/data/bioprotean/ABA/KernelPCA/poly3/'+str(n)+'_components.npy', components)
+    np.save('/data/bioprotean/ABA/KernelPCA/poly3/'+str(n)+'_lambdas.npy', lambdas)
+    np.save('/data/bioprotean/ABA/KernelPCA/poly3/'+str(n)+'_alphas.npy', alphas)
+    np.save('/data/bioprotean/ABA/KernelPCA/poly3/'+str(n)+'_dual_coef.npy', dual_coef)
+    np.save('/data/bioprotean/ABA/KernelPCA/poly3/'+str(n)+'_transformed_fit.npy', transformed_fit)

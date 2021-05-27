@@ -3,13 +3,13 @@ import concurrent.futures as cf
 from sklearn.decomposition import KernelPCA
 
 # Loading the voxel * gene matrix
-X = np.load('/data/bioprotean/ABA/MEMMAP/genes_list/ABA_mask_pos_std.npy')
+X = np.load('/data/bioprotean/ABA/MEMMAP/genes_list/genes_half_mask_pos_std.npy')
 
 # List of numbers
 # numbers_list = list(range(50,551,50))
 # add = 594
 # numbers_list.append(add)
-numbers_list = [63113]
+numbers_list = [31512]
 
 for n in numbers_list:
     # Running K-means clustering
