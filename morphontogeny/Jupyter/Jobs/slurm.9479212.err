@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/home/mabbasi6/git/Morphontogeny/morphontogeny/Jupyter/Jobs/KPCA_sigmoid.py", line 17, in <module>
+    components = kpca.fit_transform(X)
+  File "/home/mabbasi6/.local/lib/python3.7/site-packages/sklearn/decomposition/_kernel_pca.py", line 310, in fit_transform
+    self.fit(X, **params)
+  File "/home/mabbasi6/.local/lib/python3.7/site-packages/sklearn/decomposition/_kernel_pca.py", line 286, in fit
+    self._fit_transform(K)
+  File "/home/mabbasi6/.local/lib/python3.7/site-packages/sklearn/decomposition/_kernel_pca.py", line 221, in _fit_transform
+    enable_warnings=False)
+  File "/home/mabbasi6/.local/lib/python3.7/site-packages/sklearn/utils/validation.py", line 1249, in _check_psd_eigenvalues
+    % (-min_eig / max_eig))
+ValueError: There are significant negative eigenvalues (0.158872 of the maximum positive). Either the matrix is not PSD, or there was an issue while computing the eigendecomposition of the matrix.
