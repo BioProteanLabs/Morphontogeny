@@ -6,7 +6,7 @@ from sklearn.cluster import AgglomerativeClustering
 mode = 'serial'
 
 # Loading the principal components array
-X = np.load('/data/bioprotean/ABA/KernelPCA/rbf/31512_80v_components.npy')
+X = np.load('/data/bioprotean/ABA/PCA/80_variance/PC_80v.npy')
 
 # List of numbers
 numbers_list = list(range(1,50))
@@ -22,12 +22,12 @@ def clustering_function(n):
     
     # Saving the labels
     labels = AC.labels_
-    labels_path = '/data/bioprotean/ABA/KernelPCA/rbf/Agglomerative/labels/'+str(n)+'_clusters.npy'
+    labels_path = '/data/bioprotean/ABA/PCA/80_variance/Agglomerative/labels/'+str(n)+'_clusters.npy'
     np.save(labels_path, labels)
     
     # Saving the children
     children = AC.children_
-    children_path = '/data/bioprotean/ABA/KernelPCA/rbf/Agglomerative/children/'+str(n)+'_clusters.npy'
+    children_path = '/data/bioprotean/ABA/PCA/80_variance/Agglomerative/children/'+str(n)+'_clusters.npy'
     np.save(children_path, children)
 
 if mode == 'parallel':
