@@ -1,6 +1,0 @@
-Traceback (most recent call last):
-  File "/home/mabbasi6/git/Morphontogeny/morphontogeny/Jupyter/Jobs/SFT.py", line 48, in <module>
-    clustering_function(n)
-  File "/home/mabbasi6/git/Morphontogeny/morphontogeny/Jupyter/Jobs/SFT.py", line 26, in clustering_function
-    for n_features in features_list:
-NameError: name 'features_list' is not defined
