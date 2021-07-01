@@ -2,7 +2,7 @@ import numpy as np
 from sklearn.cluster import KMeans
 
 # Loading the principal components array
-X = np.load('/data/bioprotean/ABA/KernelPCA/sigmoid/31512_80v_components.npy')
+X = np.load('/data/bioprotean/ABA/PCA/mask/mask_PC_80v.npy')
 
 # List of numbers
 numbers_list = list(range(1,50))
@@ -17,5 +17,5 @@ for n in numbers_list:
     kmeans.fit_predict(X)
     
     # Reshaping and saving the array
-    arr = kmeans.labels_.reshape(67,58,41)
-    np.save('/data/bioprotean/ABA/KernelPCA/poly3/sigmoid/31512_80v_'+str(n)+'_clusters.npy', arr)
+    arr = kmeans.labels_
+    np.save('/data/bioprotean/ABA/PCA/mask/clusters/'+str(n)+'_clusters.npy', arr)
