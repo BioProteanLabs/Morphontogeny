@@ -1,4 +1,0 @@
-#SBATCH -t 0-00:10:00
-#SBATCH -p publicgpu
-#SBATCH -q wildfire
-#SBATCH --mem=128GB						# memory
