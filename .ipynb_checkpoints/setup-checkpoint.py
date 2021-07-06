@@ -11,7 +11,7 @@ with open('README.md', 'r') as fh:
     LONG_DESCRIPTION = fh.read()
     setuptools.setup(
         name = 'morphontogeny',
-        version = '0.0.2',
+        version = '0.1',
         author = 'BioProtean Labs',
         description = 'Analysis scripts for morphometry and spacial transcriptomic data.',
         long_description = LONG_DESCRIPTION,
