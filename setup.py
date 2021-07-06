@@ -4,7 +4,8 @@ REQUIRED = [
     'numpy',
     'nibabel',
     'scipy',
-    'matplotlib'
+    'matplotlib',
+    'pandas'
 ]
 
 with open('README.md', 'r') as fh:
