@@ -1,1 +1,3 @@
-from morphontogeny.nifti_tools import nifti_tools
+from morphontogeny.functions import IO
+from morphontogeny.functions import plots
+from morphontogeny.functions import metrics
