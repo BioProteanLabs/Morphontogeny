@@ -30,8 +30,7 @@ You'll need git installed on your local machine. Check to see if it's already in
 
 If it isn't installed, you'll need to install it. On Mac, this is [evidently](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) as easy as running the above command. If that doesn't work, you can download an installer from the [git website](https://git-scm.com/download/mac). There's an installer for [Windows](https://git-scm.com/download/win) as well.
 
-You'll now need to clone the repo onto your local machine. On the page for the repository, click the green "Code" button, select HTTPS, and copy the URL. Open a terminal in the directory where you want the repo, and run
-
+You'll now need to clone the repo onto your local machine. On the page for the repository, click the green "Code" button, select HTTPS, and copy the URL. Open a terminal in the directory where you want the repo, and run 
 ``` git clone <URL> ```
 
 The repo is now on your local machine!

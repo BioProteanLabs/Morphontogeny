@@ -140,8 +140,7 @@ def nifti_to_npy(nifti_file, output_file):
     np.save(output_file, arr)
 
 
-def reconstruct_ABA (vector, indices_file, outside_value = -1, scale = False, mirror = True,\
-    array_3D = True):
+def reconstruct_ABA (vector, indices_file, outside_value = -1, mirror = True, array_3D = True):
     '''
     This function reconstructs the masked and/or halved
     vector to the original shape (159326,).
@@ -174,16 +173,11 @@ def reconstruct_ABA (vector, indices_file, outside_value = -1, scale = False, mi
     indices = np.load(indices_file)
     
     # Making empty array to reconstruct the original array
-    output = np.full((159326,), outside_value)
-    
-    # Scaling the values if needed
-    if scale == True:
-        min_value = np.min(vector)
-        vector = vector/min_value
+    output = np.full((159326), outside_value, dtype='float32')
     
     # Reconstructing the array
     output[indices] = vector
-    
+
     # Making a 3D output
     output_3D = output.reshape(67,58,41)
     
