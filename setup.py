@@ -5,14 +5,14 @@ REQUIRED = [
     'nibabel',
     'scipy',
     'matplotlib',
-    'pandas'
+    'pandas',
 ]
 
 with open('README.md', 'r') as fh:
     LONG_DESCRIPTION = fh.read()
     setuptools.setup(
         name = 'morphontogeny',
-        version = '0.1.1',
+        version = '0.1.2',
         author = 'BioProtean Labs',
         description = 'Analysis scripts for morphometry and spacial transcriptomic data.',
         long_description = LONG_DESCRIPTION,
