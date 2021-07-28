@@ -284,3 +284,44 @@ def region_length(region_id):
     ratio = length_0 / length_1
     
     return ratio
+
+
+def generate_3d_glcm(array, levels, direction):
+
+    """
+    Generates a grey level co-occurrence matrix for a 3d array.
+
+    array (numpy.Array): the array from which to calculate the GLCM.
+    levels (int): the number of grey levels in the image. Continuous values in the image will be binned into these levels.
+    direction (tuple): directions in which to calculate co-occurrence of pairs of grey levels. a glcm will be made for each.
+    """
+
+    glcm = np.zeros(shape=(levels,levels))                                  # array that will hold co-occurrence values.
+
+    arr = array - np.min(array)                                             # set the minimum to zero
+    arr = (arr / np.max(arr)) * (levels - 1)                                # and the max to the number of levels - 1
+
+    arr = np.int32(arr)                                                     # round to ints.
+
+    for ii in range(arr.shape[0] - direction[0]):
+        for jj in range(arr.shape[1] - direction[1]):
+            for kk in range(arr.shape[2] - direction[2]):                   # ^ for every element in the array *except* those on the right, bottom, and back faces:
+                val1 = arr[ii,jj,kk]                                        # get the value of that element,
+                val2 = arr[ii+direction[0],jj+direction[1],kk+direction[2]] # get the value of the element one step in the chosen direction,
+
+                glcm[val1,val2] += 1                                        # and increment the glcm element corresponding to that pair.
+
+    return glcm
+
+
+def greycomatrix_3d(array, levels, directions):
+
+    """
+    Generates a grey level co-occurrence matrix for a 3d array.
+
+    array (numpy.Array): the array from which to calculate the GLCM.
+    levels (int): the number of grey levels in the image. Continuous values in the image will be binned into these levels.
+    directions (tuple): directions in which to calculate co-occurrence of pairs of grey levels. a glcm will be made for each.
+    """
+
+    return [generate_3d_glcm(array, levels, direction) for direction in directions]
