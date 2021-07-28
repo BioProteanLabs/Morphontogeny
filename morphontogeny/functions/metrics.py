@@ -298,10 +298,10 @@ def generate_3d_glcm(array, levels, direction):
 
     glcm = np.zeros(shape=(levels,levels))                                  # array that will hold co-occurrence values.
 
-    arr = array - np.min(array)                                             # set the minimum to zero
-    arr = (arr / np.max(arr)) * (levels - 1)                                # and the max to the number of levels - 1
+    arr = array - np.nanmin(array)                                          # set the minimum to zero
+    arr = (arr / np.nanmax(arr)) * (levels - 1)                             # and the max to the number of levels - 1
 
-    arr = np.int32(arr)                                                     # round to ints.
+    arr = np.round(arr)                                                     # round to ints.
 
     for ii in range(arr.shape[0] - direction[0]):
         for jj in range(arr.shape[1] - direction[1]):
@@ -309,7 +309,9 @@ def generate_3d_glcm(array, levels, direction):
                 val1 = arr[ii,jj,kk]                                        # get the value of that element,
                 val2 = arr[ii+direction[0],jj+direction[1],kk+direction[2]] # get the value of the element one step in the chosen direction,
 
-                glcm[val1,val2] += 1                                        # and increment the glcm element corresponding to that pair.
+                if True not in np.isnan([val1, val2]):                      # check to see if either of the voxels is a nan value, and if not:
+
+                    glcm[int(val1),int(val2)] += 1                          # increment the glcm element corresponding to that pair.
 
     return glcm
 
