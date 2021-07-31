@@ -1,5 +1,8 @@
 import numpy as np
 from numpy import std, mean, sqrt
+
+from networkx import Graph, number_connected_components
+
 # Need to import IO
 
 def overlap_function(base_arr, input_arr, input_ids_list, input_mode = 'separate',\
@@ -321,9 +324,44 @@ def greycomatrix_3d(array, levels, directions):
     """
     Generates a grey level co-occurrence matrix for a 3d array.
 
-    array (numpy.Array): the array from which to calculate the GLCM.
+    array (numpy.ndarray): the array from which to calculate the GLCM.
     levels (int): the number of grey levels in the image. Continuous values in the image will be binned into these levels.
     directions (tuple): directions in which to calculate co-occurrence of pairs of grey levels. a glcm will be made for each.
     """
 
     return [generate_3d_glcm(array, levels, direction) for direction in directions]
+
+
+def adjacency_matrix_from_faces(verts, faces):
+    """
+    Generates an adjacency matrix from lists of vertices and faces produced by marching cubes.
+
+    verts (numpy.ndarray): a numpy array containing the coordinates of the vertices found by marching cubes.
+    faces (numpy.ndarray): a numpy array containing the triangular faces that make up the mesh found by marching cubes.
+    """
+
+    adjacency = np.zeros(shape=(len(verts), len(verts))) # preallocate the adjacency matrix
+
+    for ii, face in enumerate(faces):        # for each face (which consists of a set of 3 vertices):
+
+        for i1, v1 in enumerate(face):       # for each vertex in that set:
+            remainder = np.delete(face, i1)  # find the remaining vertices in the set,
+            for v2 in remainder:             # and set each pairwise combination to one in the adjacency matrix.
+                adjacency[v1, v2] = 1
+                adjacency[v2, v1] = 1
+
+    return adjacency
+
+def number_of_graph_components(verts, faces):
+    """
+    Finds the number of connected graph components in the set of vertices and faces produced by marching cubes.
+
+    verts (numpy.ndarray): a numpy array containing the coordinates of the vertices found by marching cubes.
+    faces (numpy.ndarray): a numpy array containing the triangular faces that make up the mesh found by marching cubes.
+    """
+
+    adjacency = adjacency_matrix_from_faces(verts, faces)
+
+    adjacency_graph = Graph(adjacency)
+
+    return number_connected_components(adjacency_graph)
